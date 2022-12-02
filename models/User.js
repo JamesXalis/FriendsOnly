@@ -13,7 +13,10 @@ const userSchema = new Schema(
         type: String,
         required: 'Email must not be empty.',
         unique: 'Email must be unique.',
-        validate: [emailTest, 'Please fill out a valid email.']
+        validate: {
+            validator: emailTest,
+            message: "Please enter a valid email"
+        }
     },
     thoughts: [
         {
